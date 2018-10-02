@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatTabChangeEvent } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'sandbox';
+
+  public navItems: string[] = [
+    '/list',
+    '/other',
+    '/testing'
+  ];
+
+  public get selectedTab(): number {
+    return this.navItems.findIndex(item => this.router.url.startsWith(item));
+  }
+
+  constructor(private router: Router) { }
+
+  public onTabChange(tabEvent: MatTabChangeEvent) {
+    this.router.navigate([this.navItems[tabEvent.index]]);
+  }
 }

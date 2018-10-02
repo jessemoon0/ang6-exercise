@@ -1,0 +1,20 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://www.google.com/design/spec/style/color.html
+$iwg-app-primary: mat-palette($mat-light-green, 400, 200, 600);
+$iwg-app-accent:  mat-palette($mat-blue, 200, 50, 400);
+
+// The warn palette is optional (defaults to red).
+$iwg-app-warn: mat-palette($mat-deep-orange, 800, 600, 900);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$iwg-app-theme: mat-light-theme($iwg-app-primary, $iwg-app-accent, $iwg-app-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($iwg-app-theme);
