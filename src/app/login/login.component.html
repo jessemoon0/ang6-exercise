@@ -1,0 +1,24 @@
+<section>
+  <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+    <mat-form-field appearance="outline" color="accent" floatLabel="always" class="login">
+      <input type="text"
+             matInput
+             placeholder="Username"
+             name="username"
+             autocomplete="on"
+             formControlName="username"
+             required>
+    </mat-form-field>
+
+    <button mat-raised-button
+            class="login-btn"
+            type="submit"
+            color="primary"
+            [disabled]="myForm.invalid">
+      Login
+    </button>
+
+  </form>
+</section>
+

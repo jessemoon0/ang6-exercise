@@ -10,9 +10,9 @@ import { Router } from '@angular/router';
 export class AppComponent {
 
   public navItems: string[] = [
+    '/login',
     '/list',
-    '/other',
-    '/testing'
+    '/other'
   ];
 
   public get selectedTab(): number {

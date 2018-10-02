@@ -2,24 +2,27 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListComponent } from './list/list.component';
 import { OtherComponent } from './other/other.component';
-import { TestingComponent } from './testing/testing.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './auth.guard';
 
 const appRoutes: Routes = [
   {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
     path: 'list',
-    component: ListComponent
+    component: ListComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'other',
-    component: OtherComponent
-  },
-  {
-    path: 'testing',
-    component: TestingComponent
+    component: OtherComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '',
-    redirectTo: 'list',
+    redirectTo: 'login',
     pathMatch: 'full'
   }
 ];
